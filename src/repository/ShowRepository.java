@@ -1,3 +1,9 @@
+package repository;
+
+import model.Film;
+import model.Series;
+import model.Show;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

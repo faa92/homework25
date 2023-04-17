@@ -1,3 +1,5 @@
+package model;
+
 public abstract class Show {
     public static final double MIN_RATING = 0;
     public static final double MAX_RATING = 10;

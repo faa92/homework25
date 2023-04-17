@@ -1,3 +1,5 @@
+package model;
+
 public class Series extends Show {
     private int lastSeasonYear;
     private int numberOfSeasons;

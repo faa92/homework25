@@ -1,3 +1,5 @@
+package model;
+
 public class Film extends Show {
     public Film(
             String movieTitle,

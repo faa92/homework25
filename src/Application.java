@@ -1,3 +1,6 @@
+import model.Show;
+import repository.ShowRepository;
+
 import java.util.List;
 
 public class Application {
