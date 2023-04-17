@@ -29,14 +29,17 @@ public class ShowRepository {
             while ((line = seriesReader.readLine()) != null) {
                 String[] data = line.split(",");
                 String title = data[0];
-                int year = Integer.parseInt(data[1]);
-                String country = data[2];
-                double rating = Double.parseDouble(data[3]);
-                int numberOfRatings = Integer.parseInt(data[4]);
-
-
+                int productionYear = Integer.parseInt(data[1]);
+                int lastEpisodeYear = Integer.parseInt(data[2]);
+                String country = data[3];
+                int numSeasons = Integer.parseInt(data[4]);
+                int numberOfEpisodes = Integer.parseInt(data[5]);
+                double rating = Double.parseDouble(data[6]);
+                int numberOfRatings = Integer.parseInt(data[7]);
+                shows.add(new Series(title, productionYear, lastEpisodeYear, country,
+                        numSeasons, numberOfEpisodes, rating, numberOfRatings));
             }
-
+            seriesReader.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

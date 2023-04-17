@@ -1,27 +1,42 @@
 public class Series extends Show {
-    private int lastEpisodeYear;
+    private int lastSeasonYear;
     private int numberOfSeasons;
     private int numberOfEpisodes;
 
-    public Series(String movieTitle, int productionYear, String country,
-                  double rating, int numberOfRatings) {
+    public int getLastSeasonYear() {
+        return lastSeasonYear;
+    }
+
+    public int getNumberOfSeasons() {
+        return numberOfSeasons;
+    }
+
+    public int getNumberOfEpisodes() {
+        return numberOfEpisodes;
+    }
+
+    public Series(String movieTitle,
+                  int productionYear,
+                  int lastSeasonYear,
+                  String country,
+                  int numberOfSeasons,
+                  int numberOfEpisodes,
+                  double rating,
+                  int numberOfRatings
+    ) {
         super(movieTitle, productionYear, country, rating, numberOfRatings);
-        this.lastEpisodeYear = lastEpisodeYear;
+        if (numberOfSeasons < 0) throw new IllegalArgumentException("Неверное количество сезонов");
+        if (numberOfEpisodes < 0) throw new IllegalArgumentException("Неверное количество епизодов");
+
+        this.lastSeasonYear = lastSeasonYear;
         this.numberOfSeasons = numberOfSeasons;
         this.numberOfEpisodes = numberOfEpisodes;
     }
 
     @Override
     public String toString() {
-        return "Series{" +
-                "title='" + getMovieTitle() + '\'' +
-                ", year=" + getProductionYear() +
-                ", country='" + getCountry() + '\'' +
-                ", rating=" + getRating() +
-                ", numRatings=" + getNumberOfRatings() +
-                ", lastEpisodeYear=" + lastEpisodeYear +
-                ", numSeasons=" + numberOfSeasons +
-                ", numEpisodes=" + numberOfEpisodes +
-                '}';
+        return "[Сериал] %-40s  %s–%s  %s  %2s  %3s  %.1f  %7s"
+                .formatted(getMovieTitle(), getProductionYear(), getLastSeasonYear(),
+                        getCountry(), getNumberOfSeasons(), getNumberOfEpisodes(), getRating(), getNumberOfRatings());
     }
 }
